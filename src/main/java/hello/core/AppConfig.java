@@ -20,13 +20,13 @@ public class AppConfig {
     }
 
     @Bean
-    public MemoryMemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+    public OrderService orderService(){
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
-    public OrderService orderService(){
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+    public MemoryMemberRepository memberRepository() {
+        return new MemoryMemberRepository();
     }
 
     @Bean
